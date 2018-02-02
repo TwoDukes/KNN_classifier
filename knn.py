@@ -1,4 +1,7 @@
-import random
+from scipy.spatial import distance
+
+def euc(a,b):
+  return distance.euclidean(a,b)
 
 class customKNN():
   def fit(self, features_train, labels_train):
@@ -8,9 +11,20 @@ class customKNN():
   def predict(self, features_test):
     predictions = []
     for row in features_test:
-      label = random.choice(self.labels_train)
+      label = self.closest(row)
       predictions.append(label)
     return predictions
+  
+  #find the closest feature in training set and returns its label
+  def closest(self, row):
+    best_distance= euc(row, self.features_train[0])
+    best_index = 0
+    for i in range(1, len(self.features_train)):
+      dist = euc(row, self.features_train[i])
+      if dist < best_distance:
+        best_distance = dist
+        best_index = i
+    return self.labels_train[best_index]
 
 
 from sklearn import datasets
