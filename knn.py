@@ -39,7 +39,6 @@ class customKNN():
     for x in best_indices:
       avg.append(self.labels_train[x])
     most_common = Counter(avg).most_common(1)
-    print most_common[0], avg
     return most_common[0][0]
 
 
