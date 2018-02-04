@@ -57,7 +57,7 @@ clf = customKNN(neighbors = 5)
 clf.fit(x_train, y_train)
 pred = clf.predict(x_test)
 
-
+#uncomment to print out the preictions for each test case
 #for prediction in pred:
 #  if prediction == 0:
 #    print "setosa"
