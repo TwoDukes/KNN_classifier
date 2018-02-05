@@ -5,6 +5,7 @@ from numpy import average
 def euc(a,b):
   return distance.euclidean(a,b)
 
+#TODO: move this to another file and import it
 class customKNN():
 
   def __init__(self, neighbors = 1):
